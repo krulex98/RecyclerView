@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 class NumberViewHolder extends RecyclerView.ViewHolder {
 
-	TextView title;
+	final TextView title;
 
 	NumberViewHolder(@NonNull View itemView) {
 		super(itemView);

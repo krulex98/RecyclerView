@@ -10,9 +10,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class DataAdapter extends RecyclerView.Adapter<NumberViewHolder> {
-	private List<Integer> data;
+	private final List<Integer> data;
 
-	DataAdapter(List<Integer> _data) {
+	public DataAdapter(List<Integer> _data) {
 		data = _data;
 	}
 

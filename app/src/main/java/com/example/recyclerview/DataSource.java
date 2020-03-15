@@ -3,7 +3,7 @@ package com.example.recyclerview;
 import java.util.List;
 import java.util.ArrayList;
 
-class DataSource {
+public class DataSource {
 
 	private static final int NUMBER_COUNT = 100;
 	private final List<Integer> sourceData;
@@ -11,13 +11,12 @@ class DataSource {
 	private DataSource() {
 		sourceData = new ArrayList<>();
 
-
 		for (Integer i = 0; i < NUMBER_COUNT; i++) {
 			sourceData.add(i);
 		}
 	}
 
-	List<Integer> getSourceData() {
+	public List<Integer> getSourceData() {
 		return sourceData;
 	}
 
@@ -25,7 +24,7 @@ class DataSource {
 		private static final DataSource INSTANCE = new DataSource();
 	}
 
-	static DataSource getInstance() {
+	public static DataSource getInstance() {
 		return SingletonHolder.INSTANCE;
 	}
 }
