@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 public class DataSource {
 
-	private static final int NUMBER_COUNT = 10;
+	private static final int NUMBER_COUNT = 100;
 	private final ArrayList<Integer> sourceData;
 
 	private DataSource() {
 		sourceData = new ArrayList<>();
 
-		for (Integer i = 0; i < NUMBER_COUNT; i++) {
+		for (Integer i = 1; i <= NUMBER_COUNT; i++) {
 			sourceData.add(i);
 		}
 	}
