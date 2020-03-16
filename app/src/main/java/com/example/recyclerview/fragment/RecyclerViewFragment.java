@@ -1,5 +1,6 @@
 package com.example.recyclerview.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.GridLayoutManager;
 
+import com.example.recyclerview.ContextProvider;
 import com.example.recyclerview.DataAdapter;
 import com.example.recyclerview.DataSource;
 import com.example.recyclerview.R;
@@ -39,7 +41,12 @@ public class RecyclerViewFragment extends Fragment {
 		RecyclerView recyclerView = view.findViewById(R.id.recycler);
 
 		ArrayList<Integer> data = DataSource.getInstance().getSourceData();
-		adapter = new DataAdapter(getFragmentManager());
+		adapter = new DataAdapter(getFragmentManager(), new ContextProvider() {
+			@Override
+			public Context getContext() {
+				return getActivity();
+			}
+		});
 		adapter.update(data);
 
 		int columnsCount = getResources().getBoolean(R.bool.is_horizontal) ?  GRID_COLUMNS_HORIZONTAL : GRID_COLUMNS_VERTICAL;

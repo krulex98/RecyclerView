@@ -13,9 +13,11 @@ import java.util.ArrayList;
 public class DataAdapter extends RecyclerView.Adapter<NumberViewHolder> {
 	private final ArrayList<Integer> data = new ArrayList<>();
 	private final FragmentManager fragmentManager;
+	private final ContextProvider contextProvider;
 
-	public DataAdapter(FragmentManager _fragmentManager) {
+	public DataAdapter(FragmentManager _fragmentManager, ContextProvider _contextProvider) {
 		fragmentManager = _fragmentManager;
+		contextProvider = _contextProvider;
 	}
 
 	@NonNull
@@ -25,13 +27,13 @@ public class DataAdapter extends RecyclerView.Adapter<NumberViewHolder> {
 				.from(parent.getContext())
 				.inflate(R.layout.recycler_view_item, parent, false);
 
-		return new NumberViewHolder(view, fragmentManager);
+		return new NumberViewHolder(view, fragmentManager, contextProvider);
 	}
 
 	@Override
 	public void onBindViewHolder(@NonNull NumberViewHolder holder, int position) {
 		Integer number = data.get(position);
-		holder.setTitle(String.valueOf(number));
+		holder.setTitle(number);
 		holder.bindClickListener(position);
 	}
 

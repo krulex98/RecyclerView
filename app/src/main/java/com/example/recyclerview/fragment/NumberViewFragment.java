@@ -17,9 +17,11 @@ public class NumberViewFragment extends Fragment {
 	public NumberViewFragment() {}
 
 	private Integer number;
+	private int color;
 
-	public NumberViewFragment(Integer _number) {
+	public NumberViewFragment(Integer _number, int _color) {
 		number = _number;
+		color = _color;
 	}
 
 	@Override
@@ -28,6 +30,7 @@ public class NumberViewFragment extends Fragment {
 
 		if (savedInstanceState != null) {
 			number = savedInstanceState.getInt("number");
+			color = savedInstanceState.getInt("color");
 		}
 	}
 
@@ -35,6 +38,7 @@ public class NumberViewFragment extends Fragment {
 	public void onSaveInstanceState(@NonNull Bundle outState) {
 		super.onSaveInstanceState(outState);
 		outState.putInt("number", number);
+		outState.putInt("color", color);
 	}
 
 	@Nullable
@@ -43,6 +47,7 @@ public class NumberViewFragment extends Fragment {
 		View view = inflater.inflate(R.layout.fragment_number_view, container, false);
 		TextView textView = view.findViewById(R.id.number);
 		textView.setText(String.valueOf(number));
+		textView.setTextColor(color);
 		return view;
 	}
 }
