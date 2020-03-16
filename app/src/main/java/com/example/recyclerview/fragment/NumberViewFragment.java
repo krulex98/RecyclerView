@@ -25,6 +25,16 @@ public class NumberViewFragment extends Fragment {
 	@Override
 	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		if (savedInstanceState != null) {
+			number = savedInstanceState.getInt("number");
+		}
+	}
+
+	@Override
+	public void onSaveInstanceState(@NonNull Bundle outState) {
+		super.onSaveInstanceState(outState);
+		outState.putInt("number", number);
 	}
 
 	@Nullable
