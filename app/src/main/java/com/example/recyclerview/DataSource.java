@@ -31,4 +31,8 @@ public class DataSource {
 		Integer last = sourceData.get(sourceData.size() - 1);
 		sourceData.add(last + 1);
 	}
+
+	Integer getByIndex(int index) {
+		return sourceData.get(index);
+	}
 }

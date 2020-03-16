@@ -5,12 +5,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
 public class DataAdapter extends RecyclerView.Adapter<NumberViewHolder> {
 	private final ArrayList<Integer> data = new ArrayList<>();
+	private final FragmentManager fragmentManager;
+
+	public DataAdapter(FragmentManager _fragmentManager) {
+		fragmentManager = _fragmentManager;
+	}
 
 	@NonNull
 	@Override
@@ -19,13 +25,14 @@ public class DataAdapter extends RecyclerView.Adapter<NumberViewHolder> {
 				.from(parent.getContext())
 				.inflate(R.layout.recycler_view_item, parent, false);
 
-		return new NumberViewHolder(view);
+		return new NumberViewHolder(view, fragmentManager);
 	}
 
 	@Override
 	public void onBindViewHolder(@NonNull NumberViewHolder holder, int position) {
 		Integer number = data.get(position);
-		holder.title.setText(String.valueOf(number));
+		holder.setTitle(String.valueOf(number));
+		holder.bindClickListener(position);
 	}
 
 	@Override

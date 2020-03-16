@@ -27,8 +27,8 @@ public class RecyclerViewFragment extends Fragment {
 	private DataAdapter adapter;
 
 	@Override
-	public void onCreate(@Nullable Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+	public void onCreate(@Nullable Bundle _savedInstanceState) {
+		super.onCreate(_savedInstanceState);
 	}
 
 	@Nullable
@@ -39,7 +39,7 @@ public class RecyclerViewFragment extends Fragment {
 		RecyclerView recyclerView = view.findViewById(R.id.recycler);
 
 		ArrayList<Integer> data = DataSource.getInstance().getSourceData();
-		adapter = new DataAdapter();
+		adapter = new DataAdapter(getFragmentManager());
 		adapter.update(data);
 
 		int columnsCount = getResources().getBoolean(R.bool.is_horizontal) ?  GRID_COLUMNS_HORIZONTAL : GRID_COLUMNS_VERTICAL;
