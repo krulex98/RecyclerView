@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RecyclerView</string>
+	<string name="btn_caption">Add number</string>
 </resources>

@@ -7,14 +7,10 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class DataAdapter extends RecyclerView.Adapter<NumberViewHolder> {
-	private final List<Integer> data;
-
-	public DataAdapter(List<Integer> _data) {
-		data = _data;
-	}
+	private final ArrayList<Integer> data = new ArrayList<>();
 
 	@NonNull
 	@Override
@@ -35,5 +31,11 @@ public class DataAdapter extends RecyclerView.Adapter<NumberViewHolder> {
 	@Override
 	public int getItemCount() {
 		return data.size();
+	}
+
+	public void update(ArrayList<Integer> newData) {
+		data.clear();
+		data.addAll(newData);
+		notifyDataSetChanged();
 	}
 }

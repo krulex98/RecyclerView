@@ -1,12 +1,11 @@
 package com.example.recyclerview;
 
-import java.util.List;
 import java.util.ArrayList;
 
 public class DataSource {
 
-	private static final int NUMBER_COUNT = 100;
-	private final List<Integer> sourceData;
+	private static final int NUMBER_COUNT = 10;
+	private final ArrayList<Integer> sourceData;
 
 	private DataSource() {
 		sourceData = new ArrayList<>();
@@ -16,7 +15,7 @@ public class DataSource {
 		}
 	}
 
-	public List<Integer> getSourceData() {
+	public ArrayList<Integer> getSourceData() {
 		return sourceData;
 	}
 
@@ -26,5 +25,10 @@ public class DataSource {
 
 	public static DataSource getInstance() {
 		return SingletonHolder.INSTANCE;
+	}
+
+	public void add() {
+		Integer last = sourceData.get(sourceData.size() - 1);
+		sourceData.add(last + 1);
 	}
 }
