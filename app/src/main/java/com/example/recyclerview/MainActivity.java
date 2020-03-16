@@ -15,9 +15,9 @@ public class MainActivity extends AppCompatActivity {
 
 		if (savedInstanceState == null) {
 			getSupportFragmentManager()
-					.beginTransaction()
-					.add(R.id.container, new RecyclerViewFragment())
-					.commit();
+				.beginTransaction()
+				.add(R.id.container, new RecyclerViewFragment())
+				.commit();
 		}
 	}
 }
